@@ -28,6 +28,11 @@ public class AlunoService {
 		return repo.insert(obj);
 	}
 	
+	public void delete(String id) {
+		findById(id);
+		repo.deleteById(id);
+	}
+	
 	public Aluno fromDTO(AlunoDTO objDto) {
 		return new Aluno(objDto.getId(), objDto.getNome(), objDto.getTelefone());
 	}
