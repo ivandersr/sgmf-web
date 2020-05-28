@@ -28,6 +28,27 @@ public class AlunoService {
 		return repo.insert(obj);
 	}
 	
+	public Aluno update(Aluno obj) {
+		Aluno update = findById(obj.getId());
+		updateData(update, obj);
+		return repo.save(update);
+	}
+	
+	private void updateData(Aluno update, Aluno obj) {
+		update.setAtivo(obj.getAtivo());
+		update.setDataInicio(obj.getDataInicio());
+		update.setDataNasc(obj.getDataNasc());
+		update.setMensalidade(obj.getMensalidade());
+		update.setNome(obj.getNome());
+		update.setObserv(obj.getObserv());
+		update.setPagamento(obj.getPagamento());
+		update.setReferencia(obj.getReferencia());
+		update.setTelefone(obj.getTelefone());
+		update.setPresenca(obj.getPresenca());
+		update.setPlano(obj.getPlano());
+		update.setVencimento(obj.getVencimento());
+	}
+
 	public void delete(String id) {
 		findById(id);
 		repo.deleteById(id);
