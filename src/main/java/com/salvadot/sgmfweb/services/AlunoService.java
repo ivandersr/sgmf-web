@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.salvadot.sgmfweb.domain.Aluno;
 import com.salvadot.sgmfweb.repositories.AlunoRepository;
+import com.salvadot.sgmfweb.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class AlunoService {
@@ -16,6 +17,10 @@ public class AlunoService {
 	
 	public List<Aluno> findAll() {
 		return repo.findAll();
+	}
+	
+	public Aluno findById(String id) {
+		return repo.findById(id).orElseThrow(() -> new ObjectNotFoundException("Aluno não encontrado."));
 	}
 
 }
