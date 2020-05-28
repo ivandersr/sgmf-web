@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="aluno")
@@ -26,6 +27,7 @@ public class Aluno implements Serializable {
 	private Double mensalidade;
 	private String observ;
 	
+	@DBRef(lazy=true)
 	private List<Aluno> indicacoes = new ArrayList<>();  // Lista de indicações (matrículas) feitas pelo Aluno
 	
 	private Grupo grupo; // Divide alunos entre crianças e adultos

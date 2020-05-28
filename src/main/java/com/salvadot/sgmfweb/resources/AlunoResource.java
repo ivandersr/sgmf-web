@@ -58,4 +58,11 @@ public class AlunoResource {
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();
 	}
+	
+	@RequestMapping(value="/{id}/indicacoes", method=RequestMethod.GET)
+	public ResponseEntity<List<AlunoDTO>> findIndicacoes(@PathVariable String id) {
+		List<Aluno> list = service.findById(id).getIndicacoes();
+		List<AlunoDTO> listDTO = list.stream().map(x -> new AlunoDTO(x)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
+	}
 }

@@ -1,7 +1,10 @@
 package com.salvadot.sgmfweb.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.salvadot.sgmfweb.domain.Aluno;
 import com.salvadot.sgmfweb.domain.Grupo;
 import com.salvadot.sgmfweb.domain.Plano;
@@ -12,7 +15,7 @@ public class AlunoDTO implements Serializable {
 	private String id;
 	private String nome;
 	private String telefone;
-//	private List<Aluno> indicacoes = new ArrayList<>();
+	private List<Aluno> indicacoes = new ArrayList<>();
 	private Plano plano;
 	private Grupo grupo;
 	
@@ -23,7 +26,7 @@ public class AlunoDTO implements Serializable {
 		this.id = obj.getId();
 		this.nome = obj.getNome();
 		this.telefone = obj.getTelefone();
-//		this.indicacoes = obj.getIndicacoes();
+		this.indicacoes = obj.getIndicacoes();
 		this.plano = obj.getPlano();
 		this.grupo = obj.getGrupo();
 	}
@@ -52,9 +55,10 @@ public class AlunoDTO implements Serializable {
 		this.telefone = telefone;
 	}
 	
-//	public List<Aluno> getIndicacoes() {
-//		return indicacoes;
-//	}
+	@JsonIgnore
+	public List<Aluno> getIndicacoes() {
+		return indicacoes;
+	}
 	
 	public Plano getPlano() {
 		return plano;

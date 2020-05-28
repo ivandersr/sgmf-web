@@ -44,13 +44,21 @@ public class Instantiation implements CommandLineRunner {
 		
 		Aluno a1 = new Aluno(null, "Aluno teste 1", "999999999");
 		Aluno a2 = new Aluno(null, "Aluno teste 2", "988888888");
+		Aluno a3 = new Aluno(null, "Aluno teste 3", "988888888");
+		Aluno a4 = new Aluno(null, "Aluno teste 4", "988888888");
 		
 		a1.setPlano(p1);
 		a2.setPlano(p2);
 		a1.setGrupo(adulto);
 		a2.setGrupo(crianca);
+		
+		alunoRepo.saveAll(Arrays.asList(a1, a2, a3, a4));
+		
+		a1.getIndicacoes().addAll(Arrays.asList(a2, a3, a4));
+		
+		alunoRepo.save(a1);
 
-		alunoRepo.saveAll(Arrays.asList(a1, a2));
+		
 
 	}
 
