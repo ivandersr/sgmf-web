@@ -3,6 +3,8 @@ package com.salvadot.sgmfweb.dto;
 import java.io.Serializable;
 
 import com.salvadot.sgmfweb.domain.Aluno;
+import com.salvadot.sgmfweb.domain.Grupo;
+import com.salvadot.sgmfweb.domain.Plano;
 
 public class AlunoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -10,6 +12,9 @@ public class AlunoDTO implements Serializable {
 	private String id;
 	private String nome;
 	private String telefone;
+//	private List<Aluno> indicacoes = new ArrayList<>();
+	private Plano plano;
+	private Grupo grupo;
 	
 	public AlunoDTO() { 
 	}
@@ -18,6 +23,9 @@ public class AlunoDTO implements Serializable {
 		this.id = obj.getId();
 		this.nome = obj.getNome();
 		this.telefone = obj.getTelefone();
+//		this.indicacoes = obj.getIndicacoes();
+		this.plano = obj.getPlano();
+		this.grupo = obj.getGrupo();
 	}
 
 	public String getId() {
@@ -43,6 +51,29 @@ public class AlunoDTO implements Serializable {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+	
+//	public List<Aluno> getIndicacoes() {
+//		return indicacoes;
+//	}
+	
+	public Plano getPlano() {
+		return plano;
+	}
+	
+	public void setPlano(Plano plano) {
+		this.plano = plano;
+	}
+
+	public Grupo getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(Grupo grupo) {
+		this.grupo = grupo;
+	}
+	
+	
+	
 
 	
 }

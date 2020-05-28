@@ -5,23 +5,23 @@ import java.io.Serializable;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="plano")
-public class Plano implements Serializable {
+@Document(collection="grupo")
+public class Grupo implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	private String id;
 	private String nome;
-	private Double mensalidade;
-
-	public Plano() {
+	private String descricao;
+	
+	public Grupo() {
 	}
 
-	public Plano(String id, String nome, Double mensalidade) {
+	public Grupo(String id, String nome, String descricao) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.mensalidade = mensalidade;
+		this.descricao = descricao;
 	}
 
 	public String getId() {
@@ -40,12 +40,12 @@ public class Plano implements Serializable {
 		this.nome = nome;
 	}
 
-	public Double getMensalidade() {
-		return mensalidade;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setMensalidade(Double mensalidade) {
-		this.mensalidade = mensalidade;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	@Override
@@ -64,7 +64,7 @@ public class Plano implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Plano other = (Plano) obj;
+		Grupo other = (Grupo) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -72,5 +72,7 @@ public class Plano implements Serializable {
 			return false;
 		return true;
 	}
+	
+	
 
 }

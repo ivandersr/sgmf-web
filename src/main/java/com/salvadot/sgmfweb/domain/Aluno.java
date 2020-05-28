@@ -1,7 +1,9 @@
 package com.salvadot.sgmfweb.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -23,12 +25,17 @@ public class Aluno implements Serializable {
 	private Date vencimento;
 	private Double mensalidade;
 	private String observ;
+	
+	private List<Aluno> indicacoes = new ArrayList<>();  // Lista de indicações (matrículas) feitas pelo Aluno
+	
+	private Grupo grupo; // Divide alunos entre crianças e adultos
 
 	private Plano plano;
 
 	public Aluno() {
 	}
 	
+
 	public Aluno(String id, String nome, String telefone) {
 		super();
 		this.id = id;
@@ -37,7 +44,7 @@ public class Aluno implements Serializable {
 	}
 
 	public Aluno(String id, Boolean ativo, String nome, String telefone, Date dataNasc, Date dataInicio,
-			Boolean presenca, Date pagamento, Date referencia, Date vencimento, Double mensalidade, String observ,
+			Boolean presenca, Date pagamento, Date referencia, Date vencimento, Double mensalidade, String observ, Grupo grupo,
 			Plano plano) {
 		super();
 		this.id = id;
@@ -52,6 +59,7 @@ public class Aluno implements Serializable {
 		this.vencimento = vencimento;
 		this.mensalidade = mensalidade;
 		this.observ = observ;
+		this.grupo = grupo;
 		this.plano = plano;
 	}
 
@@ -150,6 +158,21 @@ public class Aluno implements Serializable {
 	public void setObserv(String observ) {
 		this.observ = observ;
 	}
+	
+	public List<Aluno> getIndicacoes() {
+		return indicacoes;
+	}
+	
+
+	public Grupo getGrupo() {
+		return grupo;
+	}
+
+
+	public void setGrupo(Grupo grupo) {
+		this.grupo = grupo;
+	}
+
 
 	public Plano getPlano() {
 		return plano;
