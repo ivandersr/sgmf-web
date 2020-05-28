@@ -28,6 +28,13 @@ public class Aluno implements Serializable {
 
 	public Aluno() {
 	}
+	
+	public Aluno(String id, String nome, String telefone) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.telefone = telefone;
+	}
 
 	public Aluno(String id, Boolean ativo, String nome, String telefone, Date dataNasc, Date dataInicio,
 			Boolean presenca, Date pagamento, Date referencia, Date vencimento, Double mensalidade, String observ,
